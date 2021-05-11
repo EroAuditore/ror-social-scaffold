@@ -7,26 +7,27 @@ class Friendship < ApplicationRecord
   after_destroy :destroy_inverse
 
   def set_defaults
-    self.confirmed = false if self.confirmed.nil?
+    self.confirmed = false if confirmed.nil?
   end
 
   def create_inverse
-     Friendship.create(user: friend, friend: user, confirmed: confirmed)
+    Friendship.create(user: friend, friend: user, confirmed: confirmed)
   end
 
   def inverse_record_nil?
-      inverse_record.nil?
+    inverse_record.nil?
   end
+
   def inverse_record
     Friendship.where(user: user, friend: friend).first
   end
 
   def update_inverse
     create_inverse
-    #ir = inverse_record
-    #return if ir.confirmed == confirmed
-    #ir.confirmed = confirmed
-    #ir.save
+    # ir = inverse_record
+    # return if ir.confirmed == confirmed
+    # ir.confirmed = confirmed
+    # ir.save
   end
 
   def destroy_inverse

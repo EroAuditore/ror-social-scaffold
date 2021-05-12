@@ -19,6 +19,10 @@ class User < ApplicationRecord
   # Users who need to confirm friendship
   has_many :pending_friendships, -> { where confirmed: false }, class_name: "Friendship", foreign_key: "user_id"
   has_many :pending_friends, through: :pending_friendships, source: :friend
+  
+  # Users who requested to be friends (needed for notifications)
+  has_many :inverted_friendships, -> { where confirmed: false }, class_name: "Friendship", foreign_key: "friend_id"
+  has_many :friend_requests, through: :inverted_friendships, source: :friend
 
   def friends
     friends_array = friendships.map { |friendship| friendship.friend if friendship.confirmed }
@@ -26,16 +30,8 @@ class User < ApplicationRecord
     friends_array.compact
   end
 
-  
-
-  # Users who have requested to be friends
-  def friend_requests
-    inverse_friendships.map { |friendship| friendship.user unless friendship.confirmed }.compact
-  end
-
   # To acept invitation to friendship
-  def confirm_friend(user)
-    
+  def confirm_friend(user)    
     friendship = inverse_friendships.find { |friendship| friendship.user == user }
     friendship.confirmed = true
     friendship.save

@@ -25,10 +25,7 @@ class User < ApplicationRecord
   has_many :friend_requests, through: :inverted_friendships, source: :user
 
   has_many :friends_and_own, class_name: 'Post', foreign_key: 'user_id'
-  has_many :friends_and_own_posts,  through: :friends_and_own, source: :user
-
-
-
+  has_many :friends_and_own_posts, through: :friends_and_own, source: :user
 
   def friends
     friends_array = friendships.map { |friendship| friendship.friend if friendship.confirmed }

@@ -4,7 +4,6 @@ RSpec.describe 'Friendship invitation', type: :system do
   before :each do
     User.create(name: 'Edu', email: 'Edu@gmail.com', password: 'konohavillage')
   end
-  
 
   it 'Can add a friend' do
     visit '/users/sign_in'
@@ -26,11 +25,9 @@ RSpec.describe 'Friendship invitation', type: :system do
     sleep(5)
     expect(page).to have_content 'Pending'
     sleep(5)
-    
   end
 
   it 'Can Accept a friend' do
-    
     sleep(3)
     visit '/users/sign_in'
     sleep(3)

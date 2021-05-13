@@ -6,7 +6,6 @@ RSpec.describe 'Sign in', type: :system do
     User.delete_all
     User.create(name: 'Louis', email: 'louis@hotmail.com', password: 'konohavillage')
   end
- 
 
   it 'signs me in' do
     visit '/users/sign_in'

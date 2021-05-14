@@ -20,11 +20,6 @@ module ApplicationHelper
     current_user == user || current_user.friend?(user)
   end
 
-  # def accept_friendship(friendship)
-  #   return unless current_user == @user
-  #   link_to('Accept', user_friendship_path(friendship.user, friendship.id), method: :put, class: 'profile-link')
-  # end
-
   def add_friend_request_btn(user)
     return if current_user == user || user.friend?(current_user)
     return if current_user.friend_requests.include?(user)
@@ -47,5 +42,15 @@ module ApplicationHelper
                                                                 class: 'btn btn-secondary ms-2') +
       link_to('Reject', user_friendship_path(user, current_user), method: :delete,
                                                                   class: 'btn btn-secondary ms-2')
+  end
+
+  def time_line
+    timeline_users = [current_user.id]
+    timeline_users += current_user.friends.map(&:id)
+    timeline_posts ||= current_user.friends_and_own(timeline_users)
+
+    timeline_posts.all.each do |post|
+      content_tag(:li, post.content)
+    end
   end
 end

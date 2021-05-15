@@ -2,6 +2,10 @@
 
 > This repo includes intial code for social media app with basic styling. Its purpose is to be a starting point for Microverse students.
 
+## Live Demo
+
+[Live-Demo](https://erosocialmedia.herokuapp.com/)
+
 ### Friendship
 
 User can:

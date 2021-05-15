@@ -40,13 +40,13 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'devise'
 
 # env variables
-gem 'figaro'
-gem 'sassc'
-gem 'uglifier'
 gem 'bootstrap', '~> 5.0.0.beta3'
+gem 'figaro'
 gem 'jquery-rails'
 gem 'popper_js', '~> 2.9.2'
+gem 'sassc'
 gem 'selenium-webdriver'
+gem 'uglifier'
 gem 'webdrivers'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

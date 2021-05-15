@@ -39,7 +39,7 @@ User can:
 
 ## Live Demo
 
-TBA
+[Live-Demo](https://erosocialmedia.herokuapp.com/)
 
 ## Getting Started
 
@@ -95,11 +95,14 @@ Open `http://localhost:3000/` in your browser.
 
 ### Deployment
 
-TBA
+- heroku
 
 ## Authors
 
-TBA
+👤 Eduardo Rodriguez
+
+Github: @EroAuditore
+Linkedin: [EroAuditore](https://www.linkedin.com/in/eroauditore/)
 
 ## 🤝 Contributing
 
@@ -113,8 +116,10 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
-TBA
+- [Micoverse team](https://microverse.pathwright.com/library/fast-track-curriculum/69047/path/step/49736080/)
 
 ## 📝 License
 
-TBA
+## Credit to Esty for the images used
+
+This project is [MIT](https://opensource.org/licenses/MIT) licensed.
